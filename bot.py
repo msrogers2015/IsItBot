@@ -13,7 +13,8 @@ from discord.ext import commands
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
-bot = commands.Bot(command_prefix='-')
+bot = commands.Bot(command_prefix='-', activity=discord.Activity(type=discord.ActivityType.watching,
+       name=str(len(bot.guilds)) + " servers | -help"))
 bot.remove_command('help')
 
 
@@ -30,6 +31,7 @@ holidays = {
     'juneteenth' : datetime.datetime(y.year, 6, 19),
     'halloween' : datetime.datetime(y.year, 10, 31),
     'veterns' : datetime.datetime(y.year, 11, 11),
+    'independence': datetime.datetime(y.year, 7, 4),
 }
 
 '''
@@ -58,10 +60,6 @@ timezone = "Based on Louisville, KY UTC-5"
 @bot.event
 async def on_ready():
    print(f'{bot.user.name} has connected to a server')
-   await bot.change_presence(
-       activity=discord.Activity(type=discord.ActivityType.watching,
-       name=str(len(bot.guilds)) + " servers | -help")
-    )
 
 
 #Ping command to check for latency
