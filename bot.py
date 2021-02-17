@@ -35,6 +35,14 @@ holidays = {
     'christmas' : [12,25],
 }
 
+v_holidays = {
+    # Format is Week, Day, Month
+    'mlk' : [3,1,1],
+    'president' : [3,1,2],
+    'memorial' : [-1,1,5],
+    'labor' : [1,1,9],
+    'thanksgiving' : [4,4,11],
+}
 
 # Print that the bot is online
 @bot.event
